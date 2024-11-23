@@ -21,7 +21,7 @@
 
 En el presente proyecto se llevará a cabo un análisis estadístico sobre el precio de la criptomoneda Dogecoin, tomando en cuenta sus estadísticas anteriores, presentes y futuras para realizar una predicción de su valor en los próximos 6 años.
 
-![Gráfico estadístico](README/page.mp4)
+![Gráfico estadístico](README/page.gif)
 
 ---
 
