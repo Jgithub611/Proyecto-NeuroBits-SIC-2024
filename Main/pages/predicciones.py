@@ -22,7 +22,6 @@ st.markdown("""
     font-size: 16px;
 }
 
-
  </style>
 """, unsafe_allow_html=True)
 
@@ -44,10 +43,8 @@ if predict:
     doge_data.set_index('Date', inplace=True)
     doge_data = doge_data.sort_index()
     doge_data_weekly = doge_data['Close'].resample('W').mean()
-
     model_sarimax = SARIMAX(doge_data_weekly, order=(2, 1, 2), seasonal_order=(1, 1, 1, 52))
     sarimax_model = model_sarimax.fit(maxiter=10, disp=True)#########################################
-
     forecast_steps = 365
     forecast = sarimax_model.get_forecast(steps=forecast_steps)
 
@@ -61,9 +58,7 @@ if predict:
 
     forecast_daily = forecast_weekly.set_index('Semana').resample('D').interpolate(method='linear').reset_index()
     forecast_daily.rename(columns={'Semana': 'Fecha'}, inplace=True)
-
     forecast_daily.to_csv('Predicciones_Diarias_Dogecoin_SARIMAX.csv', index=False)
-
     st.title('Predicción de Precios de Dogecoin (SARIMAX)')
 
     fig = px.line(
@@ -90,5 +85,13 @@ if predict:
                     mode='lines', 
                     name='Límite Superior', 
                     line=dict(dash='dot', color='orange'))
+    
+    fig.update_layout(
+        title_font_size=20,
+        font=dict(size=16),
+        showlegend=False,
+        width=1280,  
+        height=600  
+                )
 
     st.plotly_chart(fig, use_container_width=True)

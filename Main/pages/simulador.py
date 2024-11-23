@@ -2,14 +2,12 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import simulador as sm
-from statsmodels.tsa.statespace.sarimax import SARIMAX
 st.set_page_config(
     page_title="Dogecoin Simulator",
     page_icon="🐶",
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
 #Load data sm
 sm.main()
 
@@ -32,7 +30,6 @@ st.markdown("""
     font-size: 16px;
 }
 
-
  </style>
 """, unsafe_allow_html=True)
 
@@ -50,16 +47,14 @@ dataset.dropna(inplace=True)
 dataset['Date'] = pd.to_datetime(dataset['Date'])
 
 
-with st.sidebar:
+with st.sidebar: #sim
     st.title('🐕Dogecoin')
-    #Sim
-    inversion_inicial=st.number_input("Inversión inicial(USD)",value=20)
-    objetivos_ganancia=st.number_input("Objetivo de ganancias(USD)",value=5)
+    inversion_inicial=st.number_input("Inversión inicial(USD)",value=5)
+    objetivos_ganancia=st.number_input("Objetivo de ganancias(USD)",value=8)
     estrategia=st.selectbox("Estrategia",["Normal","Agresiva","Conservadora"],placeholder="Seleccione una estrategia") 
-    num_transaciones=st.slider("Número de transacciones",step=10,min_value=10,max_value=500)
-    dias_futuros=st.slider("Días a predecir",step=1,min_value=1,max_value=7)
+    num_transaciones=st.slider("Número de transacciones",step=10,min_value=10,max_value=500,value=20)
+    dias_futuros=st.slider("Días a predecir",step=1,min_value=1,max_value=7,value=2)
     
-
 st.subheader("Simulación")
 with st.container(): 
     def fig_sim():
@@ -76,12 +71,13 @@ with st.container():
         yaxis_title='Saldo (USD)',
         title_font_size=20,
         font=dict(size=16),
-        showlegend=False
+        showlegend=False,
+        width=1280,  
+        height=600  
                 )
         st.plotly_chart(simulacion, use_container_width=False)
     
-    #Simulation buttom 
-with st.sidebar:
+with st.sidebar: #Simulation buttom
     simulation=st.button("Iniciar simulación",key="button")
 if simulation:  
     saldo_total=sm.simulador_inversion_interactivo(inversion_inicial,num_transaciones,objetivos_ganancia,dias_futuros,estrategia)[0]
@@ -92,6 +88,30 @@ if simulation:
     'Saldo (USD)': saldo_historico
     } 
     fig_sim()
-    st.write(sm.mostrar_rendimiento(inversion_inicial,saldo_total))
-
-
+    resultado1,resultado2=(sm.mostrar_rendimiento(inversion_inicial,saldo_total))
+    if resultado2 =="💰 ¡Felicidades! Has ganado dinero.":
+        st.markdown(
+            f"""
+            <div style='
+                text-align: center;
+                color: green;
+                font-size: 24px;
+            '>
+                ✅ <strong>Rendimiento Total:</strong> {resultado1},{resultado2}
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    else:
+         st.markdown(
+            f"""
+            <div style='
+                text-align: center;
+                color: red;
+                font-size: 24px;
+            '>
+                ✖️ <strong>Rendimiento Total:</strong> {resultado1},{resultado2}
+            </div>
+            """,
+            unsafe_allow_html=True 
+            )

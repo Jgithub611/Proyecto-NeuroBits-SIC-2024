@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import simulador as sm
-from statsmodels.tsa.statespace.sarimax import SARIMAX 
 #######################################
 st.set_page_config(
     page_title="Dogecoin Analysis Dashboard",
@@ -10,10 +9,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
-#Load data sm
-sm.main()
-
+sm.main() #Load data simulator
 st.markdown("""
 <style>
  [data-testid="block-container"] {
@@ -41,25 +37,19 @@ st.markdown("""
     font-size: 16px;
 }
 
-
  </style>
 """, unsafe_allow_html=True)
 
 st.sidebar.markdown('''
-
 NeutroBits
 ''')
-
 logo = "dogecoin-doge-logo.png"  
 st.markdown("<h1 style='text-align: center;'>Dogecoin análisis</h1>", unsafe_allow_html=True)
 st.image(logo, width=200)
-
 file_path = 'DOGE-USD.csv'
 dataset = pd.read_csv(file_path)
-dataset.dropna(inplace=True)
+dataset.dropna(inplace=True)#Eliminar datos nulos
 dataset['Date'] = pd.to_datetime(dataset['Date'])
-
-
 with st.sidebar:
     st.title('🐕Dogecoin')
     years = dataset['Date'].dt.year.unique()
@@ -109,7 +99,7 @@ fig = px.scatter(filtered_data,
                 )
 st.plotly_chart(fig,use_container_width=True)
 
-st.subheader("Correlacion")
+st.subheader("Correlación")
 numerical_data = filtered_data.select_dtypes(include='number')
 correlation_matrix = numerical_data.corr()
 custom_colorscale = ['#FFFFFF','#3848c7']
