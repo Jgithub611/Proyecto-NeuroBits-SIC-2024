@@ -47,6 +47,8 @@ Se utilizaron herramientas como:
 
 4. **Estadísticos (Valores, gráficos, …)**  
    *(Incluye imágenes o ejemplos si aplica)*
+![Gráfico estadístico](README/estadistica_1.png)
+![Gráfico estadístico](README/estadistica_2.png)  
 
 ---
 
