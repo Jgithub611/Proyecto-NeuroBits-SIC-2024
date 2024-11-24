@@ -65,7 +65,7 @@ Se utilizaron herramientas como:
   - Plotly  
   - Sarimax  
 
-(img)
+![Arquitectura Streamlit](README/streamlit_est.png)
 
 #### Simulador de Inversiones
 - Herramientas utilizadas:  
