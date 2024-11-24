@@ -63,7 +63,7 @@ Se utilizaron herramientas como:
   - Plotly  
   - Sarimax  
 
-![Arquitectura Simulador](README/Arquitectura_Simulador.png)
+(img)
 
 #### Simulador de Inversiones
 - Herramientas utilizadas:  
@@ -74,12 +74,12 @@ Se utilizaron herramientas como:
   - IPython  
   - Streamlit  
 
-![Gráfico estadístico](README/arquitectua.png)
+![Arquitectura Simulador](README/Arquitectura_Simulador.png)
 
 ---
 
-##Conclusión
-A lo largo de este proyecto, hemos emprendido un viaje en el mundo de las criptomonedas, centrándonos en Dogecoin y su comportamiento en el mercado. Desde la búsqueda inicial de información en fuentes confiables hasta la recolección y análisis de datos, cada paso ha sido una oportunidad para aprender y crecer como equipo. La colaboración entre todos los miembros ha sido fundamental para el éxito de este análisis. Cada uno aportó sus habilidades únicas, desde la búsqueda y limpieza de datos hasta la creación de visualizaciones interactivas que permiten a los usuarios explorar y comprender mejor las tendencias del mercado. Nuestro objetivo no solo fue proyectar el precio de Dogecoin hasta 2030, sino también ofrecer una herramienta que empodere a los usuarios en su toma de decisiones. Finalmente, este proyecto ha sido más que un simple análisis; ha sido una experiencia transformadora que nos ha permitido crecer como investigadores, analistas y como equipo, esperando así que todo este esfuerzo implementado sea para la ayuda de aquellos que desean invertir en esta emblemática moneda.
+## Conclusión
+**A lo largo de este proyecto, hemos emprendido un viaje en el mundo de las criptomonedas, centrándonos en Dogecoin y su comportamiento en el mercado. Desde la búsqueda inicial de información en fuentes confiables hasta la recolección y análisis de datos, cada paso ha sido una oportunidad para aprender y crecer como equipo. La colaboración entre todos los miembros ha sido fundamental para el éxito de este análisis. Cada uno aportó sus habilidades únicas, desde la búsqueda y limpieza de datos hasta la creación de visualizaciones interactivas que permiten a los usuarios explorar y comprender mejor las tendencias del mercado. Nuestro objetivo no solo fue proyectar el precio de Dogecoin hasta 2030, sino también ofrecer una herramienta que empodere a los usuarios en su toma de decisiones. Finalmente, este proyecto ha sido más que un simple análisis; ha sido una experiencia transformadora que nos ha permitido crecer como investigadores, analistas y como equipo, esperando así que todo este esfuerzo implementado sea para la ayuda de aquellos que desean invertir en esta emblemática moneda.**
 
 ---
 
